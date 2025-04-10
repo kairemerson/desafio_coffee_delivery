@@ -15,4 +15,18 @@ export const defaultTheme = {
     baseCard: "#F3F2F2",
     background: "#FAFAFA",
     white: "#fff",
+
+    titleXl: "3rem",
+    titleL: "2rem",
+    titleM: "1.5rem",
+    titleS: "1.25rem",
+    titleXS: "1.125rem",
+
+    textL: "1.25rem",
+    textM: "1rem",
+    textS: "0.875rem",
+    textXS: "0.75rem",
+    tag: "0.625rem",
+    buttonG: "0.875rem",
+    buttonM: "0.75rem",
 }
