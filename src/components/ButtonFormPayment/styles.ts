@@ -12,6 +12,13 @@ export const ButtonContainer = styled.button`
     border-radius: 6px;
     flex: 1;
     cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: ${props => props.theme.baseHover};
+        
+    }
+
     svg {
         color: ${props => props.theme.purple};
         margin-right: 0.75rem;
