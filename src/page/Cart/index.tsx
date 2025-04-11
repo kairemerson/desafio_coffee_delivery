@@ -1,7 +1,9 @@
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { AddressContainer, ButtonsContainer, CartContainer, InfoOrder, PaymentContainer, SelectedCoffees, Subtitle, Title, TitleForm, TitlePayment } from "./styles";
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
+import { AddressContainer, ButtonsContainer, CartContainer, Coffee, CoffeeButons, CoffeeTitle, ConfirmButton, InfoOrder, PaymentContainer, SelectedCoffees, SelectedCoffeesContainer, Subtitle, Title, TitleForm, TitlePayment, TotalContainer } from "./styles";
 import { InputText } from "../../components/Input/styles";
 import { ButtonFormPayment } from "../../components/ButtonFormPayment";
+import tradicional from "../../assets/tradicional.png"
+import { ButtonQuantity } from "../../components/ButtonQuantity";
 
 
 export function Cart() {
@@ -18,7 +20,7 @@ export function Cart() {
 
                         </div>
                     </TitleForm>
-                    <form action="">
+                    <form id="order">
                         <InputText placeholder="CEP" width={35}/>
                         <InputText placeholder="Rua" width={100}/>
                         <div style={{display: "flex", gap: "0.75rem"}}>
@@ -59,10 +61,53 @@ export function Cart() {
                     </ButtonsContainer>
                 </PaymentContainer>
             </InfoOrder>
-            <SelectedCoffees>
+            <SelectedCoffeesContainer>
                 <h4>Cafés selecionados</h4>
 
-            </SelectedCoffees>
+                <SelectedCoffees>
+                    <Coffee>
+                        <div>
+                            <img src={tradicional}/>
+                            <div>
+                                <CoffeeTitle>Expresso Tradicional</CoffeeTitle>
+                                <CoffeeButons>
+                                    <ButtonQuantity/>
+                                    <button>
+                                        <Trash size={16}/>
+                                        <p>REMOVER</p>
+                                    </button>
+                                </CoffeeButons>
+                            </div>
+                        </div>
+                        <span>R$ 9,90</span>
+                    </Coffee>
+                    <Coffee>
+                        <div>
+                            <img src={tradicional}/>
+                            <div>
+                                <CoffeeTitle>Expresso Tradicional</CoffeeTitle>
+                                <CoffeeButons>
+                                    <ButtonQuantity/>
+                                    <button>
+                                        <Trash size={16}/>
+                                        <p>REMOVER</p>
+                                    </button>
+                                </CoffeeButons>
+                            </div>
+                        </div>
+                        <span>R$ 9,90</span>
+                    </Coffee>
+                    <TotalContainer>
+                        <div><p>Total de itens</p><p>R$ 29,70</p></div>
+                        <div><p>Entrega</p><p>R$ 3,50</p></div>
+                        <div><span>Total</span><span>R$ 33,20</span></div>
+                    </TotalContainer>
+                    <ConfirmButton type="submit" form="order">
+                        CONFIRMAR PEDIDO
+                    </ConfirmButton>
+                </SelectedCoffees>
+
+            </SelectedCoffeesContainer>
         </CartContainer>
     )
 }
