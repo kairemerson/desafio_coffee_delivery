@@ -1,6 +1,7 @@
-import { AddToCart, CardContainer, FooterCard, Image, PriceFooter, Quantity, Subtitle, Tag, Title } from "./styles";
+import { AddToCart, CardContainer, FooterCard, Image, PriceFooter, Subtitle, Tag, Title } from "./styles";
 import tradicional from "../../../../assets/tradicional.png"
-import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { ShoppingCart } from "phosphor-react";
+import { ButtonQuantity } from "../../../../components/ButtonQuantity";
 
 export function ProductCard() {
     return (
@@ -14,9 +15,7 @@ export function ProductCard() {
                     R$
                     <span>9,90</span>
                 </PriceFooter>
-                <Quantity>
-                    <Minus size={14} color="#8047F8" weight="bold" /> <p>1</p> <Plus size={14} color="#8047F8" weight="bold" />
-                </Quantity>
+                <ButtonQuantity/>
 
                 <AddToCart>
                     <ShoppingCart size={22} fill="#fff" weight="fill"/>

@@ -62,23 +62,16 @@ export const PriceFooter = styled.p`
     }
 `
 
-export const Quantity = styled.div`
-    background: ${props => props.theme.baseButton};
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 0.5rem;
-    border-radius: 6px;
-   
-    p{
-        font-size: ${props => props.theme.textM};
-        color: ${props => props.theme.baseTitle};
-    }
-`
-
 export const AddToCart = styled.div`
     display: flex;
     padding: 0.5rem;
     background: ${props => props.theme.purpleDark};
     border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    &:hover{
+        background: ${props => props.theme.purple};
+
+    }
 `
