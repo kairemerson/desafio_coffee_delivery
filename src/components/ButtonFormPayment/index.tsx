@@ -5,9 +5,9 @@ interface Props {
     children: ReactNode
 }
 
-export function ButtonFormPayment({children}: Props) {
+export function ButtonFormPayment({children, ...rest}: Props) {
     return (
-        <ButtonContainer>
+        <ButtonContainer {...rest}>
             {children}
         </ButtonContainer>
     )
