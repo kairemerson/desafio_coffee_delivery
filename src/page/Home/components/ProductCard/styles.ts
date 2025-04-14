@@ -11,6 +11,7 @@ export const CardContainer = styled.div`
     height: 19.375rem;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
+    margin-bottom: 2rem;
 `
 
 export const Image = styled.img`
@@ -20,6 +21,7 @@ export const Image = styled.img`
 `
 
 export const Tag = styled.div`
+    display: inline-block;
     background: ${props => props.theme.yellowLight};
     color: ${props => props.theme.yellowDark};
     font-size: ${props => props.theme.tag};
@@ -28,6 +30,9 @@ export const Tag = styled.div`
     margin-bottom: 1rem;
     border-radius: 10px;
     font-weight: bold;
+    &:not(:first-child){
+        margin-left: 0.25rem;
+    }
 `
 
 export const Title = styled.h3`
@@ -48,6 +53,7 @@ export const FooterCard = styled.div`
     align-items: center;
     justify-content: space-around;
     margin-top: auto;
+    margin-bottom: 1rem;
 `
 
 export const PriceFooter = styled.p`

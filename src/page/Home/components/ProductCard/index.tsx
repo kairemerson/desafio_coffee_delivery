@@ -1,23 +1,67 @@
 import { AddToCart, CardContainer, FooterCard, Image, PriceFooter, Subtitle, Tag, Title } from "./styles";
-import tradicional from "../../../../assets/tradicional.png"
 import { ShoppingCart } from "phosphor-react";
 import { ButtonQuantity } from "../../../../components/ButtonQuantity";
+import { useContext, useState } from "react";
+import { CartContext } from "../../../../contexts/CartProvider";
 
-export function ProductCard() {
+interface CoffeeProps {
+    coffee: {
+        id: string;
+        title: string;
+        description: string;
+        tags: string[];
+        price: number;
+        image: string;
+
+    }
+}
+
+export function ProductCard({coffee}: CoffeeProps) {
+
+    const [quantity, setQuantity] = useState(1)
+
+    const {addItem} = useContext(CartContext)
+
+    function handleAddItem() {
+        addItem({id: coffee.id, quantity})
+        setQuantity(1)
+    }
+
+    function incrementQuantity() {
+        setQuantity((state: number) => state + 1)
+    }
+
+    
+    function decrementQuantity() {
+        if(quantity == 1) {  
+            return
+        }
+        setQuantity((state: number) => state - 1)
+    }
+
     return (
         <CardContainer>
-            <Image src={tradicional}/>
-            <Tag>TRADICIONAL</Tag>
-            <Title>Expresso Tradicional</Title>
-            <Subtitle>O tradicional café feito com água quente e grãos moídos</Subtitle>
+            <Image src={coffee.image}/>
+
+            <div>
+                {
+                    coffee.tags.map((tag)=> (
+                        <Tag>{tag.toUpperCase()}</Tag>
+
+                    ))
+                }
+
+            </div>
+            <Title>{coffee.title}</Title>
+            <Subtitle>{coffee.description}</Subtitle>
             <FooterCard>
                 <PriceFooter>
                     R$
-                    <span>9,90</span>
+                    <span>{coffee.price.toFixed(2)}</span>
                 </PriceFooter>
-                <ButtonQuantity/>
+                <ButtonQuantity quantity={quantity} incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity}/>
 
-                <AddToCart>
+                <AddToCart onClick={handleAddItem}>
                     <ShoppingCart size={22} fill="#fff" weight="fill"/>
                 </AddToCart>
             </FooterCard>
