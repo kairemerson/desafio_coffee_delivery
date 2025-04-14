@@ -1,8 +1,8 @@
-import { HomeContainer, IconContainer, Image, Info, InfoContainer, InfoWrapper, Intro, IntroContainer, ProductsContainer, Subtitle, Title } from "./styles";
+import { CardsContainer, HomeContainer, IconContainer, Image, Info, InfoContainer, InfoWrapper, Intro, IntroContainer, ProductsContainer, Subtitle, Title } from "./styles";
 import principalImage from "../../assets/Imagem.png"
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
-import { CardContainer } from "./components/ProductCard/styles";
 import { ProductCard } from "./components/ProductCard";
+import {coffees} from "../../../data.json"
 
 
 export function Home() {
@@ -52,9 +52,12 @@ export function Home() {
             </IntroContainer>
             <ProductsContainer>
                 <h2>Nossos cafés</h2>
-                <CardContainer>
-                    <ProductCard/>
-                </CardContainer>
+                <CardsContainer>
+                    {coffees.map((coffee)=> (
+                        <ProductCard key={coffee.id} coffee={coffee}/>
+
+                    ))}
+                </CardsContainer>
             </ProductsContainer>
         </HomeContainer>
     )
