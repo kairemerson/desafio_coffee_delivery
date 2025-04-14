@@ -40,6 +40,19 @@ export const PaymentContainer = styled.div`
     }
 `
 
+export const PaymentOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+`
+
 export const TitlePayment = styled.div`
     display: flex;
     margin-bottom: 2rem;
@@ -196,4 +209,9 @@ export const ConfirmButton = styled.button`
     &:hover{
         background: ${props => props.theme.yellowDark};
     }
+`
+
+export const PaymentErrorMessage = styled.p`
+  font-weight: 400;
+  color: red;
 `
