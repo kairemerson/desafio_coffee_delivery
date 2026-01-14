@@ -1,10 +1,20 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
+const slideInRight = keyframes`
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 export const SuccessContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    padding-top: 5rem;
+    padding-top: 10rem;
 ` 
 
 export const InfoSuccess = styled.div`
@@ -17,6 +27,7 @@ export const InfoSuccess = styled.div`
         font-size: ${props => props.theme.titleS};
         color: ${props => props.theme.baseSubtitle};
     }
+    animation: ${slideInRight} 0.5s;
 `
 
 export const InfoOrder = styled.div`
@@ -53,4 +64,9 @@ export const InfoContent = styled.div`
             border-radius: 100%;
         }
     }
+`
+
+
+export const ImageContainer = styled.div`
+    animation: ${slideInRight} 0.5s ease-out forwards;
 `

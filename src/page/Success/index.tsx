@@ -1,4 +1,4 @@
-import { InfoContent, InfoOrder, InfoSuccess, SuccessContainer } from "./styles";
+import { ImageContainer, InfoContent, InfoOrder, InfoSuccess, SuccessContainer } from "./styles";
 import delivery from "../../assets/delivery.svg"
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
 import { useTheme } from "styled-components";
@@ -28,34 +28,36 @@ export function Success() {
             <InfoSuccess>
                 <h2>Uhu! Pedido confirmado</h2>
                 <p>Agora é só aguardar que logo o café chegará até você</p>
-            <InfoOrder>
-                <InfoContent>
-                    <div>
-                        <MapPin size={32} weight="fill" style={{background: theme.purple}}/>
+                <InfoOrder>
+                    <InfoContent>
                         <div>
-                            <span>Entrega em <strong>{orderInfo?.rua}, {orderInfo?.numero}</strong></span>
-                            <span>{orderInfo?.bairro} - {orderInfo?.cidade}, {orderInfo?.uf}</span>
+                            <MapPin size={32} weight="fill" style={{background: theme.purple}}/>
+                            <div>
+                                <span>Entrega em <strong>{orderInfo?.rua}, {orderInfo?.numero}</strong></span>
+                                <span>{orderInfo?.bairro} - {orderInfo?.cidade}, {orderInfo?.uf}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <Timer size={32} weight="fill" style={{background: theme.yellow}}/>
                         <div>
-                            <span>Previsão de entrega</span>
-                            <strong>20 min - 30 min</strong>
+                            <Timer size={32} weight="fill" style={{background: theme.yellow}}/>
+                            <div>
+                                <span>Previsão de entrega</span>
+                                <strong>20 min - 30 min</strong>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <CurrencyDollar size={32} weight="fill" style={{background: theme.yellowDark}}/>
                         <div>
-                            <span>Pagamento na entrega</span>
-                            <strong>{paymentMethod[orderInfo.paymentMethod]}</strong>
+                            <CurrencyDollar size={32} weight="fill" style={{background: theme.yellowDark}}/>
+                            <div>
+                                <span>Pagamento na entrega</span>
+                                <strong>{paymentMethod[orderInfo.paymentMethod]}</strong>
+                            </div>
                         </div>
-                    </div>
-                    
-                </InfoContent>
-            </InfoOrder>
+                        
+                    </InfoContent>
+                </InfoOrder>
             </InfoSuccess>
-            <img src={delivery}  />
+            <ImageContainer>
+                <img src={delivery}  />
+            </ImageContainer>
         </SuccessContainer>
     )
 }

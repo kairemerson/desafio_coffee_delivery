@@ -11,7 +11,9 @@ export function Header() {
 
     return(
         <HeaderContainer>
-            <img src={logo} />
+            <NavLink to={"/"}>
+                <img src={logo} />
+            </NavLink>
             <nav>
                 <NavLink to="#"><MapPin size={22}  fill="#8047F8" weight="fill"/> <span>Porto Alegre, RS</span></NavLink>
                 <NavLink to="/cart" title="checkout">
