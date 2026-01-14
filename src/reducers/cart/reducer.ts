@@ -17,7 +17,50 @@ interface CartState {
     orders: Order[]
 }
 
-export function cartReducer(state: CartState, action) {
+interface AddItemAction {
+  type: ActionTypes.ADD_ITEM
+  payload: {
+    item: Item
+  }
+}
+
+interface RemoveItemAction {
+  type: ActionTypes.REMOVE_ITEM
+  payload: {
+    itemId: string
+  }
+}
+
+interface IncrementItemQuantityAction {
+  type: ActionTypes.INCREMENT_ITEM_QUANTITY
+  payload: {
+    itemId: string
+  }
+}
+
+interface DecrementItemQuantityAction {
+  type: ActionTypes.DECREMENT_ITEM_QUANTITY
+  payload: {
+    itemId: string
+  }
+}
+
+interface CheckoutCartAction {
+  type: ActionTypes.CHECKOUT_CART
+  payload: {
+    order: newOrderData
+    callback: (path: string) => void
+  }
+}
+
+export type CartActions =
+  | AddItemAction
+  | RemoveItemAction
+  | IncrementItemQuantityAction
+  | DecrementItemQuantityAction
+  | CheckoutCartAction
+
+export function cartReducer(state: CartState, action: CartActions) {
     switch(action.type) {
         case ActionTypes.ADD_ITEM:
             return produce(state, (draft)=>{
