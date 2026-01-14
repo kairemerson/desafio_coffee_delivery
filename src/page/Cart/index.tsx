@@ -1,5 +1,5 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
-import { AddressContainer, ButtonsContainer, CartContainer, Coffee, CoffeeButons, CoffeeTitle, ConfirmButton, InfoOrder, PaymentContainer, PaymentErrorMessage, PaymentOptions, SelectedCoffees, SelectedCoffeesContainer, Subtitle, Title, TitleForm, TitlePayment, TotalContainer } from "./styles";
+import { AddressContainer, CartContainer, Coffee, CoffeeButons, CoffeeTitle, ConfirmButton, InfoOrder, PaymentContainer, PaymentErrorMessage, PaymentOptions, SelectedCoffees, SelectedCoffeesContainer, Subtitle, Title, TitleForm, TitlePayment, TotalContainer } from "./styles";
 
 import {useForm} from "react-hook-form"
 import {zodResolver} from "@hookform/resolvers/zod"
@@ -8,7 +8,6 @@ import * as zod from "zod"
 import {coffees} from "../../../data.json"
 
 import { InputText } from "../../components/Input/styles";
-import { ButtonFormPayment } from "../../components/ButtonFormPayment";
 import { ButtonQuantity } from "../../components/ButtonQuantity";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartProvider";
@@ -72,7 +71,7 @@ export function Cart() {
         removeItem(itemId)
     }
 
-    function handleCreateNewOrder(data) {
+    function handleCreateNewOrder(data: newOrderData) {
         
         checkout(data)
     }
